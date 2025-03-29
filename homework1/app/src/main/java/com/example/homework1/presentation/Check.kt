@@ -21,7 +21,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import com.example.homework1.data.OTPgen
 import com.example.homework1.data.Purchase
 
 @Composable
@@ -36,8 +35,6 @@ fun Check(purchases: List<Purchase>) {
     val isPayEnabled = otp.isNotEmpty()
 
     val context = LocalContext.current
-
-    val OTPgen = OTPgen()
 
     Column(
         modifier = Modifier
@@ -76,7 +73,7 @@ fun Check(purchases: List<Purchase>) {
                             fontWeight = FontWeight.Bold,
                         )
                     ) {
-                        append("- \$$totalSum")
+                        append("-$$totalSum")
                     }
                 },
                 fontSize = 25.sp,
@@ -128,7 +125,7 @@ fun Check(purchases: List<Purchase>) {
                 .background(if (isButtonEnabled) Color(0xFF3629B7) else Color.Gray)
                 .wrapContentHeight(Alignment.CenterVertically)
                 .clickable(enabled = isButtonEnabled) {
-                    otp = OTPgen.generateOtp()
+                    (100000..999999).random().toString()
                     isButtonEnabled = false
                 }
                 .padding(horizontal = 16.dp),
