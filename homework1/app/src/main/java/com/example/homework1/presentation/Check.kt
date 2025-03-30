@@ -18,10 +18,13 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import com.example.homework1.data.Purchase
+import com.example.homework1.data.OTPgen
+import com.example.homework1.ui.res.*
 
 @Composable
 fun Check(purchases: List<Purchase>) {
@@ -32,28 +35,35 @@ fun Check(purchases: List<Purchase>) {
 
     var otp by remember { mutableStateOf("") }
     var isButtonEnabled by remember { mutableStateOf(true) }
-    val isPayEnabled = otp.isNotEmpty()
+    var isPayClicked by remember { mutableStateOf(false) }
+    val isPayEnabled = otp.isNotEmpty() && !isPayClicked
 
     val context = LocalContext.current
+    val OTPgen = OTPgen()
 
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(15.dp))
-            .background(Color.White)
-            .padding(16.dp)
+            .clip(RoundedCornerShape(RoundMedium))
+            .background(white)
+            .padding(MediumPadding)
     ) {
         LazyColumn(
             modifier = Modifier.height(450.dp),
-            contentPadding = PaddingValues(bottom = 16.dp)
+            contentPadding = PaddingValues(bottom = LargePadding)
         ) {
             items(purchases) { purchase ->
                 PurchaseCard(purchase)
-                Spacer(modifier = Modifier.height(8.dp))
+                HorizontalDivider(
+                    color = grey,
+                    thickness = DividerThickness,
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(SmallPadding))
             }
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(MediumPadding))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -63,13 +73,14 @@ fun Check(purchases: List<Purchase>) {
             Text(
                 text = "TOTAL",
                 fontSize = 18.sp,
-                color = Color.Black
+                color = black,
+                fontWeight = FontWeight.Bold
             )
             Text(
                 text = buildAnnotatedString {
                     withStyle(
                         style = SpanStyle(
-                            color = Color(0xFFFF4267),
+                            color = pink,
                             fontWeight = FontWeight.Bold,
                         )
                     ) {
@@ -77,12 +88,11 @@ fun Check(purchases: List<Purchase>) {
                     }
                 },
                 fontSize = 25.sp,
-                color = Color.Black,
+                color = black,
             )
         }
 
-        Spacer(modifier = Modifier.height(16.dp))
-
+        Spacer(modifier = Modifier.height(MediumPadding))
     }
 
     DropdownMenu()
@@ -91,26 +101,26 @@ fun Check(purchases: List<Purchase>) {
         text = "Get OTP to verify transaction",
         fontWeight = FontWeight.Bold,
         fontSize = 13.sp,
-        color = Color.Gray,
+        color = darkgrey,
     )
 
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
+        horizontalArrangement = Arrangement.spacedBy(SmallPadding)
     ) {
         Box(
             modifier = Modifier
                 .weight(0.6f)
-                .height(48.dp)
-                .clip(RoundedCornerShape(10.dp))
+                .height(ButtonHeight)
+                .clip(RoundedCornerShape(RoundSmall))
                 .background(Color.Transparent)
-                .border(1.dp, Color.Gray, RoundedCornerShape(20.dp))
+                .border(1.dp, darkgrey, RoundedCornerShape(RoundMedium))
                 .wrapContentHeight(Alignment.CenterVertically)
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = MediumPadding),
         ) {
             Text(
                 text = otp.ifEmpty { "OTP" },
-                color = if (otp.isEmpty()) Color.Gray else Color.Black,
+                color = if (otp.isEmpty()) darkgrey else black,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 modifier = Modifier.align(Alignment.Center)
@@ -120,19 +130,19 @@ fun Check(purchases: List<Purchase>) {
         Box(
             modifier = Modifier
                 .weight(0.4f)
-                .height(50.dp)
-                .clip(RoundedCornerShape(20.dp))
-                .background(if (isButtonEnabled) Color(0xFF3629B7) else Color.Gray)
+                .height(ButtonHeight)
+                .clip(RoundedCornerShape(RoundMedium))
+                .background(if (isButtonEnabled) blue else grey)
                 .wrapContentHeight(Alignment.CenterVertically)
                 .clickable(enabled = isButtonEnabled) {
-                    (100000..999999).random().toString()
+                    otp = OTPgen.generateOtp()
                     isButtonEnabled = false
                 }
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = MediumPadding),
         ) {
             Text(
                 text = "Get OTP",
-                color = Color.White,
+                color = white,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp,
                 modifier = Modifier.align(Alignment.Center)
@@ -140,24 +150,25 @@ fun Check(purchases: List<Purchase>) {
         }
     }
 
-    Spacer(modifier = Modifier.height(16.dp))
+    Spacer(modifier = Modifier.height(MediumPadding))
 
     Row {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .height(48.dp)
-                .clip(RoundedCornerShape(20.dp))
-                .background(if (isPayEnabled) Color(0xFF3629B7) else Color(0xFFF2F1F9))
+                .height(ButtonHeight)
+                .clip(RoundedCornerShape(RoundMedium))
+                .background(if (isPayEnabled) blue else grey)
                 .clickable(enabled = isPayEnabled) {
                     Toast.makeText(context, "Yayy!! youve spent $totalSum! work harder to spend more ;)", Toast.LENGTH_SHORT).show()
+                    isPayClicked = true
                 }
-                .padding(horizontal = 16.dp),
+                .padding(horizontal = MediumPadding),
             contentAlignment = Alignment.Center
         ) {
             Text(
                 text = "PAY",
-                color = Color.White,
+                color = white,
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )

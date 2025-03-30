@@ -15,10 +15,11 @@ import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.foundation.clickable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.draw.clip
+import com.example.homework1.ui.res.*
 
 @Composable
 fun DropdownMenu() {
@@ -27,16 +28,16 @@ fun DropdownMenu() {
 
     Box(
         modifier = Modifier
-            .padding(16.dp)
-            .clip(RoundedCornerShape(15.dp))
+            .padding(MediumPadding)
+            .clip(RoundedCornerShape(RoundMedium))
             .height(48.dp)
-            .border(1.dp, Color.Gray, RoundedCornerShape(8.dp))
+            .border(1.dp, Color.Gray, RoundedCornerShape(RoundSmall))
             .clickable { expanded = !expanded }
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(MediumPadding),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -60,7 +61,7 @@ fun DropdownMenu() {
             modifier = Modifier
                 .fillMaxWidth()
                 .background(Color.Transparent)
-                .border(1.dp, Color.Gray, RoundedCornerShape(20.dp))
+                .border(1.dp, Color.Gray, RoundedCornerShape(RoundMedium))
         ) {
             DropdownMenuItem(
                 text = { Text("7777777777") },
