@@ -17,6 +17,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.ui.draw.clip
 import com.example.homework1.data.Purchase
 import androidx.compose.ui.platform.LocalContext
+import com.example.homework1.ui.res.*
 
 @Composable
 fun PurchaseCard(purchase: Purchase) {
@@ -26,9 +27,9 @@ fun PurchaseCard(purchase: Purchase) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(12.dp))
-            .background(Color.White)
-            .padding(16.dp)
+            .clip(RoundedCornerShape(RoundMedium))
+            .background(white)
+            .padding(MediumPadding)
             .clickable {
                 Toast.makeText(context, "${purchase.title} ${purchase.amount}", Toast.LENGTH_SHORT).show()
             },
@@ -38,8 +39,8 @@ fun PurchaseCard(purchase: Purchase) {
             Box(
                 modifier = Modifier
                     .size(48.dp)
-                    .background(purchase.color, shape = RoundedCornerShape(13.dp))
-                    .padding(13.dp)
+                    .background(purchase.color, shape = RoundedCornerShape(RoundMedium))
+                    .padding(PaddingForImage)
             ) {
                 Image(
                     painter = painterResource(id = purchase.iconRes),
@@ -49,14 +50,15 @@ fun PurchaseCard(purchase: Purchase) {
             }
             Spacer(modifier = Modifier.width(12.dp))
             Column {
-                Text(text = purchase.title, fontWeight = FontWeight.Bold, fontSize = 16.sp)
+                Text(text = purchase.title, fontWeight = FontWeight.Bold, fontSize = 19.sp)
                 Text(text = purchase.date, color = Color.Gray, fontSize = 14.sp)
             }
         }
         Text(
             text = purchase.amount,
-            color = Color(0xFFFF4267),
-            fontSize = 16.sp
+            color = pink,
+            fontSize = 19.sp,
+            fontWeight = FontWeight.Bold
         )
     }
 }
