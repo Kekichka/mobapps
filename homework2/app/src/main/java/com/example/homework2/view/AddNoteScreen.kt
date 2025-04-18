@@ -19,6 +19,7 @@ import androidx.navigation.NavController
 import com.example.homework2.R
 import com.example.homework2.viewmodel.NoteViewModel
 import com.example.homework2.ui.theme.*
+import com.example.homework2.model.Note
 
 @Composable
 fun AddNoteScreen(navController: NavController, viewModel: NoteViewModel) {
@@ -47,15 +48,15 @@ fun AddNoteScreen(navController: NavController, viewModel: NoteViewModel) {
         )
         Spacer(modifier = Modifier.height(16.dp))
 
-
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
                 .size(100.dp)
                 .align(Alignment.CenterHorizontally)
-                .clickable{
+                .clickable {
                     if (title.isNotBlank() && text.isNotBlank()) {
-                        viewModel.addNote(title, text)
+                        val note = Note(title = title, text = text)
+                        viewModel.addNote(note)
                         navController.popBackStack()
                     } else {
                         Toast.makeText(context, "Oopsie!! Write something pls", Toast.LENGTH_SHORT).show()

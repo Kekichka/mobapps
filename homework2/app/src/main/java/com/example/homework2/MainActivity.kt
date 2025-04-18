@@ -24,8 +24,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        val repository = NoteRepository()
-        val viewModel = NoteViewModel(repository)
+        val viewModel = NoteViewModel(application)
 
         setContent {
             Homework2Theme {

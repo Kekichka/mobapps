@@ -12,15 +12,16 @@ import androidx.navigation.NavController
 import com.example.homework2.model.Note
 import com.example.homework2.ui.theme.*
 import com.example.homework2.viewmodel.NoteViewModel
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.ui.input.pointer.pointerInput
 
 @Composable
 fun HomeScreen(navController: NavController, viewModel: NoteViewModel) {
-    val notes by viewModel.notes.collectAsState()
+    val notes by viewModel.allNotes.collectAsState(initial = emptyList())
 
     Column(modifier = Modifier.fillMaxSize().padding(MediumPadding)) {
         Text("Note App :3", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(MediumPadding))
-
 
         LazyColumn {
             items(notes) { note ->
@@ -28,8 +29,15 @@ fun HomeScreen(navController: NavController, viewModel: NoteViewModel) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 4.dp)
-                        .clickable {
-                            navController.navigate("NoteDetail/${note.title}/${note.text}")
+                        .pointerInput(Unit) {
+                            detectTapGestures(
+                                onLongPress = {
+                                    viewModel.deleteNote(note)
+                                },
+                                onTap = {
+                                    navController.navigate("NoteDetail/${note.id}")
+                                }
+                            )
                         },
                     colors = CardDefaults.cardColors(containerColor = LittlePookieGreen)
                 ) {
