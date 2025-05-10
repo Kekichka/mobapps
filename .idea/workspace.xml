@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="327b9951-a560-483b-a031-2b6d950b85b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/homework2/app/src/main/java/com/example/homework2/view/AddNoteScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/app/src/main/java/com/example/homework2/view/AddNoteScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/app/src/main/java/com/example/homework2/model/NoteDAO.kt" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/app/src/main/java/com/example/homework2/model/NoteDAO.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/model/PhoneCheckResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/model/PhoneCheckResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/model/Retrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/model/Retrofit.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/viewModel/PhoneCheckViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/homework4/app/src/main/java/com/example/homework4/viewModel/PhoneCheckViewModel.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,23 +19,36 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Kekichka"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kekichka&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Kekichka/mobapps.git",
-    "accountId": "6a8658a5-1268-4e64-913f-04b8c3cb121f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kekichka/mobapps.git&quot;,
+    &quot;accountId&quot;: &quot;6a8658a5-1268-4e64-913f-04b8c3cb121f&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2v8vvehPdL4p4rK7ByCv7vQAc9t" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -46,8 +62,8 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/home/Documents/mobapps/homework2"
+    "git-widget-placeholder": "room",
+    "last_opened_file_path": "C:/Users/home/Documents/mobapps"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
