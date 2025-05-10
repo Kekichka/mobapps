@@ -38,26 +38,22 @@ class CheckEmailAvailabilityUseCaseTest {
 
     @Test
     fun email_isTaken_isUnavailable() = runBlocking {
-        val result = useCase.execute("taken@pookiemail.com")
-        assertEquals(EmailCheckResult.Unavailable, result)
+        assertEquals(EmailCheckResult.Unavailable, useCase.execute("taken@pookiemail.com"))
     }
 
     @Test
     fun email_isFree_isAvailable() = runBlocking {
-        val result = useCase.execute("available@pookiemail.com")
-        assertEquals(EmailCheckResult.Available, result)
+        assertEquals(EmailCheckResult.Available, useCase.execute("available@pookiemail.com"))
     }
 
     @Test
     fun email_without_atSymbol_isInvalid() = runBlocking {
-        val result = useCase.execute("withoutsobachka.com")
-        assertTrue(result is EmailCheckResult.Invalid)
+        assertTrue(useCase.execute("withoutsobachka.com") is EmailCheckResult.Invalid)
     }
 
     @Test
     fun email_without_dotSymbol_isInvalid() = runBlocking {
-        val result = useCase.execute("withoutkrapka@pookiemail")
-        assertTrue(result is EmailCheckResult.Invalid)
+        assertTrue(useCase.execute("withoutkrapka@pookiemail") is EmailCheckResult.Invalid)
     }
 
     @Test
