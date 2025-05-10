@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.homework5.CheckEmailAvailabilityUseCaseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-05-09T13:51:24" hostname="DESKTOP-9T4OARP" time="0.053">
+  <properties/>
+  <testcase name="email_with_at_and_dot_isValid" classname="com.example.homework5.CheckEmailAvailabilityUseCaseTest" time="0.016"/>
+  <testcase name="email_without_atSymbol_isInvalid" classname="com.example.homework5.CheckEmailAvailabilityUseCaseTest" time="0.0"/>
+  <testcase name="email_isTaken_isUnavailable" classname="com.example.homework5.CheckEmailAvailabilityUseCaseTest" time="0.033"/>
+  <testcase name="email_isFree_isAvailable" classname="com.example.homework5.CheckEmailAvailabilityUseCaseTest" time="0.003"/>
+  <testcase name="email_without_dotSymbol_isInvalid" classname="com.example.homework5.CheckEmailAvailabilityUseCaseTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

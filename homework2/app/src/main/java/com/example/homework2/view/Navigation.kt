@@ -17,16 +17,14 @@ fun Navigation(navController: NavHostController, viewModel: NoteViewModel, modif
             AddNoteScreen(navController, viewModel)
         }
         composable(
-            route = "NoteDetail/{title}/{text}",
+            route = "NoteDetail/{noteId}",
             arguments = listOf(
-                navArgument("title") { type = NavType.StringType },
-                navArgument("text") { type = NavType.StringType }
+                navArgument("noteId") { type = NavType.IntType }
             )
 
         ) { backStackEntry ->
-            val title = backStackEntry.arguments?.getString("title") ?: ""
-            val text = backStackEntry.arguments?.getString("text") ?: ""
-            NoteDetailScreen(navController, title, text)
+            val noteId = backStackEntry.arguments?.getInt("noteId")
+            NoteDetailScreen(navController, noteId, viewModel)
         }
     }
 }
